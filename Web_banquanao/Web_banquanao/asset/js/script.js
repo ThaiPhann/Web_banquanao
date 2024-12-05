@@ -976,7 +976,9 @@ function handleFilterProducts(){
         <td><img style=" width: 70px;" src="${getPathImage(element.image)}" alt="productImg"></td>                                    
         <td>${element.name}</td>                                   
         <td>${vnd(element.price)}</td>                                    
-        <td>${element.catagory}</td>                                                                       
+        <td>${element.catagory}</td>
+        <td>${element.quantity}</td>
+        <td>${vnd(element.TongTien)}</td>                                                                     
         <td><button data-id="${element.id}" class="Fix">Sửa</button>|<button data-id="${element.id}" class="Delete">Xóa</button>|<button data-id="${element.id}" class="Details">DS Orders</button></td>
     </tr>`;
     });

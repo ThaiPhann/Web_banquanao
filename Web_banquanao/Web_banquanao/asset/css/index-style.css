@@ -1914,6 +1914,7 @@ label a {
     background-color: #27ae60;
     color: var(--white);
     padding-left: 35px;
+    color: white;
 }
 
 .order-history-status-sp.complete::before{
