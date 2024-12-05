@@ -1,4 +1,9 @@
 @media (max-width: 1248px) {
+    .container3 {
+        max-width: 900px;
+        padding: 0 50px;
+    }
+
     .product-detail-tab {
         display: none;
         position: fixed;
@@ -36,23 +41,18 @@
         border: none;
     }
 
-    /* Layout for image and info */
+
     .product-detail-layout {
         display: flex;
         gap: 20px;
     }
 
-    /* Left column: Image */
+
     .product-image {
         flex: 1;
-        /* Ensure it takes up one part of the space */
         display: flex;
-        /* Use flexbox for centering */
         justify-content: center;
-        /* Horizontally center the image */
         align-items: center;
-        /* Vertically center the image */
-
     }
 
     .product-image img {
@@ -69,8 +69,6 @@
         flex-direction: column;
         justify-content: space-around;
         gap: 30px;
-
-
     }
 
     .product-info h2 {
@@ -99,6 +97,81 @@
         width: 80%;
         font-size: 12px;
     }
+    .menu-list {
+        display: flex;
+        height: 50px;
+        margin-left:0px;
+        width:100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    
+    }
+   
+    .advanced-search-form-container {
+        justify-content: center;
+        display: block;
+        width:80%;
+        margin-top: 40px;
+        margin-left:100px;
+        border: 3px solid rgb(99, 168, 151);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-bottom: 30px;
+        padding-top:5px;
+        font-size:18px;
+        overflow: hidden; 
+    }
+    .advanced-search-form-container h1{
+        text-align: center;
+        margin-bottom:10px;
+    }
+    .advanced-search-form-container input{
+        border-radius:15px;
+        height:3vh;
+        text-align: center;
+    }
+    .advanced-search-form-container select{
+        border-radius:15px;
+        height:3vh;
+        width:100%;
+        text-align: center;
+    }
+    .product-name{
+        float:left;
+        margin-left:-110px;
+        margin-top: -30px;
+    }
+    .product-category{
+        float:left;
+        margin-left:-113px;
+        margin-top:-30px;
+    }
+    .product-lowest-price{
+        float:left;
+        margin-left:-113px;
+        margin-top:-30px;
+    }
+    .product-highest-price{
+        margin-left:5px;
+        margin-top:-30px;
+        float:left;
+    }
+    .advanced-search-button {
+        margin-left: 650px;
+        float:left;
+        margin-top: -52px;
+        background-color: red;
+        color:white;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 15px;
+    }
+    
+    .advanced-search-button:hover {
+        background-color: rgb(71, 21, 18);
+        color: white;
+    }
 }
 
 
@@ -110,10 +183,7 @@
         align-items: center;
     }
 
-    .footer-top-img {
-        margin-bottom: 20px;
-        border: none;
-    }
+
 
     .footer-top-subs-text {
         display: none;
@@ -185,7 +255,7 @@
         border: none;
     }
 
-    /* Layout for image and info */
+
     .product-detail-layout {
         display: flex;
         gap: 20px;
@@ -193,14 +263,14 @@
 
     /* Left column: Image */
     .product-image {
-        flex: 3;
-        /* Ensure it takes up one part of the space */
+        flex: 5;
+
         display: flex;
-        /* Use flexbox for centering */
+
         justify-content: center;
-        /* Horizontally center the image */
+
         align-items: center;
-        /* Vertically center the image */
+
 
     }
 
@@ -413,9 +483,7 @@
 
     }
 
-    .text-tk {
-        display: none;
-    }
+   
 
     .search-btn {
         border: none;
@@ -428,6 +496,81 @@
         display: flex;
         align-items: center;
         margin-left: 10px;
+    }
+    .menu-list {
+        display: flex;
+        height: 50px;
+        margin-left:-10px;
+        width:100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    
+    }
+        
+    .advanced-search-form-container {
+        justify-content: center;
+        display: block;
+        width:100%;
+        margin-top: 40px;
+        margin-left:0px;
+        border: 3px solid rgb(99, 168, 151);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-bottom: 30px;
+        padding-top:5px;
+        font-size:18px;
+        overflow: hidden; 
+    }
+    .advanced-search-form-container h1{
+        text-align: center;
+        margin-bottom:10px;
+    }
+    .advanced-search-form-container input{
+        border-radius:15px;
+        height:3vh;
+        text-align: center;
+    }
+    .advanced-search-form-container select{
+        border-radius:15px;
+        height:3vh;
+        width:100%;
+        text-align: center;
+    }
+    .product-name{
+        float:left;
+        margin-left:-110px;
+        margin-top: -30px;
+    }
+    .product-category{
+        float:left;
+        margin-left:-113px;
+        margin-top:-30px;
+    }
+    .product-lowest-price{
+        float:left;
+        margin-left:-113px;
+        margin-top:-30px;
+    }
+    .product-highest-price{
+        margin-left:5px;
+        margin-top:-30px;
+        float:left;
+    }
+    .advanced-search-button {
+        margin-left: 630px;
+        float:left;
+        margin-top: -53px;
+        background-color: red;
+        color:white;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 15px;
+    }
+    
+    .advanced-search-button:hover {
+        background-color: rgb(71, 21, 18);
+        color: white;
     }
 }
 
@@ -524,10 +667,98 @@
         width: 400px;
         height: calc(100% - 50px);
     }
+    .menu-list {
+        display: flex;
+        height: 50px;
+        margin-left:-10px;
+        width:100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    
+    }
+    .advanced-search-form-container {
+        justify-content: center;
+        display: block;
+        width:100%;
+        margin-top: 40px;
+        margin-left:0px;
+        border: 3px solid rgb(99, 168, 151);
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-bottom: 30px;
+        padding-top:5px;
+        font-size:18px;
+        overflow: hidden; 
+    }
+    .advanced-search-form-container h1{
+        text-align: center;
+        margin-bottom:10px;
+    }
+    .advanced-search-form-container input{
+        border-radius:15px;
+        height:2vh;
+        width:100%;
+        text-align: center;
+    }
+    .advanced-search-form-container select{
+        border-radius:15px;
+        height:2vh;
+        width:100%;
+        text-align: center;
+    }
+    .product-name{
+        float:left;
+        margin-left:40px;
+        margin-top: -30px;
+    }
+    .product-category{
+        float:left;
+        margin-left:25px;
+        margin-top:-28px;
+    }
+    .product-lowest-price{
+        float:left;
+        margin-left:25px;
+        margin-top:60px;
+    }
+    .product-highest-price{
+        margin-left:25px;
+        margin-top:-130px;
+        float:left;
+    }
+    .advanced-search-button {
+        margin-left: 125px;
+        float:left;
+        margin-top: -20px;
+        background-color: red;
+        color:white;
+        font-size: 15px;
+        padding: 5px;
+        border-radius: 15px;
+    }
+    
+    .advanced-search-button:hover {
+        background-color: rgb(71, 21, 18);
+        color: white;
+    }
 }
 
 
 @media (max-width: 785px) {
+    #account-user,
+    #order-history {
+        height: auto
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .container {
+        height: 80px;
+    }
+
     .menu-link::-webkit-scrollbar {
         width: 8px;
     }
@@ -581,13 +812,28 @@
         background: none;
         border: none;
     }
+    .menu-list {
+        display: flex;
+        height: 50px;
+        margin-left:-10px;
+        width:100%;
+        white-space: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+    
+    }
+
+
 }
 
 @media (max-width: 575.98px) {
-    .form-search-input {
-        width: 100%;
-        
+
+
+
+    .logo {
+        display: none;
     }
+
 
     .header-logo-img {
         width: 100px;
@@ -599,6 +845,7 @@
         grid-template-columns: repeat(1, 1fr);
         gap: 15px;
     }
+
 
     .menu-link::-webkit-scrollbar {
         width: 8px;
@@ -616,5 +863,21 @@
     .menu-link::-webkit-scrollbar-track {
         background: rgba(0, 0, 0, 0.1);
         border-radius: 10px;
+    }
+
+    .product-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .product-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 30px;
     }
 }

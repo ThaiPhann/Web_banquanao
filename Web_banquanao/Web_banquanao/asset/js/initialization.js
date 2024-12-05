@@ -131,7 +131,7 @@ function createProduct() {
             "status": 1,
             "name": "2024 T1 World Champions Jacket",
             "price": 2500000,
-            "image":"C:\\fakepath\\5.png",
+            "image":"C:\\fakepath\\1.jpg",
             "catagory": "Jacket",
             "quantity": 0,
             "TongTien":0, 

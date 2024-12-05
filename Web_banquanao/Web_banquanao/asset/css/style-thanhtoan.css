@@ -108,7 +108,7 @@ li{
     margin-left: 5px;
 }
 .form-group select {
-    width: 95%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -117,7 +117,7 @@ li{
     box-sizing: border-box;
 }
 .form-group input {
-    width: 95%;
+    width: 100%;
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -215,11 +215,8 @@ li{
     color:#3AAFA9;
 }
 .agreement{
-    width: 91%;
-    padding-left: 10px;
+    width: 96%;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     margin-bottom: 20px;
     box-sizing: border-box;
 }
@@ -233,7 +230,7 @@ li{
     color:#17252A;
 }
 .note{
-    width: 91%;
+    width: 95%;
     padding: 10px;
     font-size: 20px;
     margin-bottom: 20px;
@@ -393,7 +390,6 @@ li{
 }
 #card-name{
     margin-left:-50px; 
-    width:100%;
 }
 #card-date{
     margin-left:-50px; 
