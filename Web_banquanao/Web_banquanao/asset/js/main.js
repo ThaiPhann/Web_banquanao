@@ -25,6 +25,9 @@ function scrollToSection() {
     }, 0);
 }
 
+document.querySelector(".logo").addEventListener("click", e =>{
+    window.location.href = "index.html";
+});
 function getPathImage(path) {
     const pathParts = path.split('\\');
     const pathName = pathParts.pop();
@@ -608,8 +611,8 @@ function orderHistory() {
 
 // Thay doi thong tin
 function changeInformation() {
-    let accounts = JSON.parse(localStorage.getItem('accounts'));
-    let currentUser = JSON.parse(localStorage.getItem('currentuser'));
+    let Accounts = JSON.parse(localStorage.getItem('accounts')) || [];
+    let currentUser = JSON.parse(localStorage.getItem('currentuser'))|| [];
 
     // Lấy thông tin từ giao diện
     let newName = document.getElementById('infoname').value.trim();
@@ -622,10 +625,11 @@ function changeInformation() {
     currentUser.address = newAddress || currentUser.address;
 
     // Lưu lại thông tin vào danh sách tài khoản
-    const userIndex = accounts.findIndex(acc => acc.phone === currentUser.phone);
+    const userIndex = Accounts.findIndex(acc => acc.id === currentUser.id);
+    console.log(userIndex);
     if (userIndex !== -1) {
-        accounts[userIndex] = currentUser;
-        localStorage.setItem('accounts', JSON.stringify(accounts));
+        Accounts[userIndex] = currentUser;
+        localStorage.setItem('accounts', JSON.stringify(Accounts));
         localStorage.setItem('currentuser', JSON.stringify(currentUser));
         showToast('Thông tin tài khoản đã được cập nhật.');
     } else {
@@ -635,7 +639,7 @@ function changeInformation() {
 
 // Đổi mật khẩu 
 function changePassword() {
-    let currentUser = JSON.parse(localStorage.getItem("currentuser"));
+    let currentUser = JSON.parse(localStorage.getItem("currentuser")) || [];
     let passwordCur = document.getElementById('password-cur-info');
     let passwordAfter = document.getElementById('password-after-info');
     let passwordConfirm = document.getElementById('password-comfirm-info');
@@ -661,7 +665,7 @@ function changePassword() {
         document.querySelector('.password-after-comfirm-error').innerHTML = '';
     }
 
-    if (check == true) {
+    if (check) {
         if (passwordCur.value.length > 0) {
             if (passwordCur.value == currentUser.password) {
                 document.querySelector('.password-cur-info-error').innerHTML = '';
@@ -678,7 +682,7 @@ function changePassword() {
                                 let userChange = JSON.parse(localStorage.getItem('currentuser'));
                                 let accounts = JSON.parse(localStorage.getItem('accounts'));
                                 let accountChange = accounts.find(acc => {
-                                    return acc.phone = userChange.phone;
+                                    return acc.id == userChange.id;
                                 })
                                 accountChange.password = userChange.password;
                                 localStorage.setItem('accounts', JSON.stringify(accounts));
@@ -699,18 +703,35 @@ function changePassword() {
         }
     }
 }
+function getOrderDetails(madon) {
+    let orderDetails = localStorage.getItem("orders") ? JSON.parse(localStorage.getItem("orders")) : [];
+    let ctDon = [];
+    orderDetails.forEach(item => {
+        if(item.id == madon) {
+            ctDon = item.cart;
+        }
+    });
+    return ctDon;
+}
+
+function getProductInfo(id) {
+    let products = JSON.parse(localStorage.getItem('products'));
+    return products.find(item => {
+        return item.id == id;
+    })
+}
 
 
 
 function renderOrderProduct() {
-    let currentUser = JSON.parse(localStorage.getItem('currentuser'));
+    let currentUser = JSON.parse(localStorage.getItem('currentuser')) || [];
     let order = localStorage.getItem('orders') ? JSON.parse(localStorage.getItem('orders')) : [];
     let orderHtml = "";
     let arrDonHang = [];
     for (let i = 0; i < order.length; i++) {
-        if (order[i].khachhang === currentUser.phone) {
+        if (order[i].id_customer == currentUser.id) {
             arrDonHang.push(order[i]);
-        }
+        };
     }
     if (arrDonHang.length == 0) {
         orderHtml = `<div class="empty-order-section"><p>Chưa có đơn hàng nào</p></div>`;
@@ -718,34 +739,33 @@ function renderOrderProduct() {
         arrDonHang.forEach(item => {
             let productHtml = `<div class="order-history-group">`;
             let chiTietDon = getOrderDetails(item.id);
+            console.log(chiTietDon);
             chiTietDon.forEach(sp => {
                 let infosp = getProductInfo(sp.id);
                 productHtml += `<div class="order-history">
                     <div class="order-history-left">
-                        <img src="${infosp.img}" alt="">
+                        <img src="${getPathImage(infosp.image)}" alt="">
                         <div class="order-history-info">
-                            <h4>${infosp.title}!</h4>
-                            <p class="order-history-note"><i class="fa-light fa-pen"></i> ${sp.note}</p>
-                            <p class="order-history-quantity">x${sp.soluong}</p>
+                            <h4>${infosp.name}!</h4>                   
+                            <p class="order-history-quantity">x${sp.quantity}</p>
                         </div>
                     </div>
                     <div class="order-history-right">
                         <div class="order-history-price">
-                            <span class="order-history-current-price">${vnd(sp.price)}</span>
+                            <span class="order-history-current-price">${formatCurrency(sp.price)}</span>
                         </div>                         
                     </div>
                 </div>`;
             });
-            let textCompl = item.trangthai == 1 ? "Đã xử lý" : "Đang xử lý";
-            let classCompl = item.trangthai == 1 ? "complete" : "no-complete"
+            let textCompl = item.status == 1 ? "Đã xử lý" : "Đang xử lý";
+            let classCompl = item.status == 1 ? "complete" : "no-complete"
             productHtml += `<div class="order-history-control">
                 <div class="order-history-status">
                     <span class="order-history-status-sp ${classCompl}">${textCompl}</span>
-                    <button id="order-history-detail" onclick="detailOrder('${item.id}')"><i class="fa-regular fa-eye"></i> Xem chi tiết</button>
                 </div>
                 <div class="order-history-total">
                     <span class="order-history-total-desc">Tổng tiền: </span>
-                    <span class="order-history-toltal-price">${vnd(item.tongtien)}</span>
+                    <span class="order-history-toltal-price">${formatCurrency(item.tongTien)}</span>
                 </div>
             </div>`
             productHtml += `</div>`;
